@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record model="ir.ui.view" id="import_tab_one_form">
+            <field name="name">import.tab.one.form</field>
+            <field name="model">import.tab.one</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form >
+                <sheet>
+                    <header>
+                         <button name="action_importe" string="verifier votre idetiter" type="object" class="oe_highlight"/>
+                    </header>
+                    <group col="2">
+                    <field name="user_name"/>
+                    <field name="secure_key"/>
+                    <field name="file_data"/>  
+                    </group>
+                </sheet>          
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_import_one_view" model="ir.actions.act_window">
+            <field name="name">block 1</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">import.tab.one</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="import_tab_one_form"/>
+            <field name="target">new</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                                
+                </p>
+            </field>
+        </record>
+
+            
+        <!--______________________________________________________________________-->
+        
+        <record model="ir.ui.view" id="import_tab_two_form">
+            <field name="name">import.tab.two.form</field>
+            <field name="model">import.tab.two</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form >
+                <sheet>
+                    <header>
+                        <button name="action_importe" string="verifier votre idetiter" type="object" class="oe_highlight"/>
+                    </header>
+                    <group col="2">
+                    <field name="user_name"/>
+                    <field name="secure_key"/>
+                    <field name="file_data"/> 
+                    </group>
+                </sheet>           
+                </form>
+            </field>
+        </record>
+
+        <record id="action_import_two_view" model="ir.actions.act_window">
+            <field name="name">block 2</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">import.tab.two</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="import_tab_two_form"/>
+            <field name="target">new</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                                
+                </p>
+            </field>
+        </record>
+
+        <!--________________________________________________________________-->
+
+        <record model="ir.ui.view" id="import_tab_three_form">
+            <field name="name">import.tab.three.form</field>
+            <field name="model">import.tab.three</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form >
+                <sheet>
+                    <header>
+                        <button name="action_importe" string="verifier votre identiter" type="object" class="oe_highlight"/>
+                    </header>
+                    <group col="2">
+                    <field name="user_name"/>
+                    <field name="secure_key"/>
+                    <field name="file_data"/>
+                    </group>
+                </sheet>            
+                </form>
+            </field>
+        </record>
+
+        
+
+        <record id="action_import_three_view" model="ir.actions.act_window">
+            <field name="name">block 3</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">import.tab.three</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="import_tab_three_form"/>
+            <field name="target">new</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                                
+                </p>
+            </field>
+        </record>
+
+
+        <!--________________________________________________________________________________-->
+
+        
+        <record id="files_tab_form" model="ir.ui.view">
+            <field name="name">files.tab.form</field>
+            <field name="model">files.tab</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="user_name"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="files_tab_tree" model="ir.ui.view">
+            <field name="name">files.tab.tree</field>
+            <field name="model">files.tab</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="file"/>
+                    <field name="user_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_files_tree_view" model="ir.actions.act_window">
+            <field name="name">fichier deja importer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">files.tab</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                                
+                </p>
+            </field>
+        </record>
+
+
+    <!--________________________________________________________________________________-->
+
+    <menuitem id="menu_import_files"
+        name="gestion de fichier"
+        sequence="107"/>
+
+    
+    <menuitem id="menu_importing_one"
+        name="block d importation 1"
+        parent="menu_import_files"
+        action="action_import_one_view"
+        sequence="1"/>    
+    <menuitem id="menu_importing_two"
+        name="block d importation 2"
+        parent="menu_import_files"
+        action="action_import_two_view"
+        sequence="2"/>     
+    <menuitem id="menu_importing_three"
+        name="block d importation 3"
+        parent="menu_import_files"
+        action="action_import_three_view"
+        sequence="3"/>
+    <menuitem id="files_tree"
+        name="fichier importer"
+        parent="menu_import_files"
+        action="action_files_tree_view"
+        sequence="0"/>     
+
+
+    </data >
+</odoo>
